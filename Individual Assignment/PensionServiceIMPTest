@@ -1,0 +1,1416 @@
+package sem12122.sse3305.service;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.util.ArrayList;
+
+import org.junit.jupiter.api.Test;
+
+class PensionServiceIMPTest {
+	
+	////////////////////FUNCTIONALITY 1: BENEFIT ELIGIBILITY
+
+	//double expPension = (1.00 / 600.00) * bulankira * gajiakhir;
+	//double expGratuity = 0.075 * bulanganjar * gajiakhir;
+	//double expCashAward = (1.00 / 30.00) * gantiancuti * (gajiakhir + imbuhantetap);
+	@Test 
+	void testcase1() { 
+		PensionServiceIMP ps = new PensionServiceIMP();
+		ArrayList<String> test = new ArrayList<>();
+		test.add("1");
+		test.add("1");
+		test.add("1976");//tahunlahir
+		test.add("1");
+		test.add("11");
+		test.add("2009");//tahunkerja
+		test.add("3000");//gaji
+		test.add("150");//allowance
+		test.add("100");//gajicuti
+		test.add("0");//cutihari
+		test.add("0");//cutibulan
+		test.add("0");//cutitahun
+		test.add("21");//harisara
+		test.add("5");//bulansara
+		test.add("2022");//tahunsara
+		test.add("P");//jantina
+		test.add("N");//istimewa
+		
+		ArrayList<String> output = ps.kirapencen(test);
+		String exBenefit = "0";
+		String actBenefit = output.get(2);
+		assertEquals(exBenefit,actBenefit);
+		
+		double expPension = 750;
+		double expGratuity = 33750;
+		double expCashAward = 10500;
+		double actPension = Double.parseDouble(output.get(4));
+		double actGratuity = Double.parseDouble(output.get(5));
+		double actCashAward = Double.parseDouble(output.get(6));
+		assertEquals(expPension,actPension);
+		assertEquals(expGratuity,actGratuity);
+		assertEquals(expCashAward,actCashAward);
+		
+	}
+
+	@Test 
+	void testcase2() { 
+		PensionServiceIMP ps = new PensionServiceIMP();
+		ArrayList<String> test = new ArrayList<>();
+		test.add("1");
+		test.add("5");
+		test.add("1977");//tahunlahir
+		test.add("1");
+		test.add("4");
+		test.add("2013");//tahunkerja
+		test.add("3000");//gaji
+		test.add("150");//allowance
+		test.add("100");//gajicuti
+		test.add("0");//cutihari
+		test.add("0");//cutibulan
+		test.add("0");//cutitahun
+		test.add("21");//harisara
+		test.add("5");//bulansara
+		test.add("2022");//tahunsara
+		test.add("P");//jantina
+		test.add("N");//istimewa
+		
+		ArrayList<String> output = ps.kirapencen(test);
+		String exBenefit = "2";
+		String actBenefit = output.get(2);
+		assertEquals(exBenefit,actBenefit);
+		
+
+	}
+	@Test 
+	void testcase3() { 
+		PensionServiceIMP ps = new PensionServiceIMP();
+		ArrayList<String> test = new ArrayList<>();
+		test.add("1");
+		test.add("5");
+		test.add("1987");//tahunlahir
+		test.add("1");
+		test.add("4");
+		test.add("2012");//tahunkerja
+		test.add("3000");//gaji
+		test.add("150");//allowance
+		test.add("100");//gajicuti
+		test.add("0");//cutihari
+		test.add("0");//cutibulan
+		test.add("0");//cutitahun
+		test.add("21");//harisara
+		test.add("5");//bulansara
+		test.add("2022");//tahunsara
+		test.add("P");//jantina
+		test.add("N");//istimewa
+		
+		ArrayList<String> output = ps.kirapencen(test);
+		String exBenefit = "1";
+		String actBenefit = output.get(2);
+		assertEquals(exBenefit,actBenefit);
+		
+
+	}
+	@Test 
+	void testcase4() {
+		PensionServiceIMP ps = new PensionServiceIMP();
+		ArrayList<String> test = new ArrayList<>();
+		test.add("1");
+		test.add("5");
+		test.add("1986");//tahunlahir
+		test.add("1");
+		test.add("10");
+		test.add("2012");//tahunkerja
+		test.add("3000");//gaji
+		test.add("150");//allowance
+		test.add("100");//gajicuti
+		test.add("0");//cutihari
+		test.add("0");//cutibulan
+		test.add("0");//cutitahun
+		test.add("21");//harisara
+		test.add("5");//bulansara
+		test.add("2022");//tahunsara
+		test.add("P");//jantina
+		test.add("N");//istimewa
+		
+		ArrayList<String> output = ps.kirapencen(test);
+		String exBenefit = "1";
+		String actBenefit = output.get(2);
+		assertEquals(exBenefit,actBenefit);
+	}
+	
+	@Test 
+	void testcase13() { 
+		PensionServiceIMP ps = new PensionServiceIMP();
+		ArrayList<String> test = new ArrayList<>();
+		test.add("1");
+		test.add("11");
+		test.add("1982");//tahunlahir
+		test.add("1");
+		test.add("6");
+		test.add("2012");//tahunkerja
+		test.add("3000");//gaji
+		test.add("150");//allowance
+		test.add("100");//gajicuti
+		test.add("0");//cutihari
+		test.add("0");//cutibulan
+		test.add("0");//cutitahun
+		test.add("21");//harisara
+		test.add("5");//bulansara
+		test.add("2022");//tahunsara
+		test.add("P");//jantina
+		test.add("N");//istimewa
+		
+		ArrayList<String> output = ps.kirapencen(test);
+		String exBenefit = "1";
+		String actBenefit = output.get(2);
+		assertEquals(exBenefit,actBenefit);
+	}
+	
+	@Test 
+	void testcase14() {
+		PensionServiceIMP ps = new PensionServiceIMP();
+		ArrayList<String> test = new ArrayList<>();
+		test.add("1");
+		test.add("11");
+		test.add("1982");//tahunlahir
+		test.add("1");
+		test.add("5");
+		test.add("2012");//tahunkerja
+		test.add("3000");//gaji
+		test.add("150");//allowance
+		test.add("100");//gajicuti
+		test.add("0");//cutihari
+		test.add("0");//cutibulan
+		test.add("0");//cutitahun
+		test.add("21");//harisara
+		test.add("5");//bulansara
+		test.add("2022");//tahunsara
+		test.add("P");//jantina
+		test.add("N");//istimewa
+		
+		ArrayList<String> output = ps.kirapencen(test);
+		String exBenefit = "1";
+		String actBenefit = output.get(2);
+		assertEquals(exBenefit,actBenefit);
+	}
+	
+	@Test 
+	void testcase15() { // and TC23
+		PensionServiceIMP ps = new PensionServiceIMP();
+		ArrayList<String> test = new ArrayList<>();
+		test.add("1");
+		test.add("11");
+		test.add("1982");//tahunlahir
+		test.add("1");
+		test.add("4");
+		test.add("2012");//tahunkerja
+		test.add("3000");//gaji
+		test.add("150");//allowance
+		test.add("100");//gajicuti
+		test.add("0");//cutihari
+		test.add("0");//cutibulan
+		test.add("0");//cutitahun
+		test.add("21");//harisara
+		test.add("5");//bulansara
+		test.add("2022");//tahunsara
+		test.add("P");//jantina
+		test.add("N");//istimewa
+		
+		ArrayList<String> output = ps.kirapencen(test);
+		String exBenefit = "1";
+		String actBenefit = output.get(2);
+		assertEquals(exBenefit,actBenefit);
+	}
+	
+	@Test 
+	void testcase16() { 
+		PensionServiceIMP ps = new PensionServiceIMP();
+		ArrayList<String> test = new ArrayList<>();
+		test.add("1");
+		test.add("5");
+		test.add("1982");//tahunlahir
+		test.add("1");
+		test.add("6");
+		test.add("2012");//tahunkerja
+		test.add("3000");//gaji
+		test.add("150");//allowance
+		test.add("100");//gajicuti
+		test.add("0");//cutihari
+		test.add("0");//cutibulan
+		test.add("0");//cutitahun
+		test.add("21");//harisara
+		test.add("5");//bulansara
+		test.add("2022");//tahunsara
+		test.add("P");//jantina
+		test.add("N");//istimewa
+		
+		ArrayList<String> output = ps.kirapencen(test);
+		String exBenefit = "2";
+		String actBenefit = output.get(2);
+		assertEquals(exBenefit,actBenefit);
+	}
+	
+	@Test //SALAH
+	void testcase17() {
+		PensionServiceIMP ps = new PensionServiceIMP();
+		ArrayList<String> test = new ArrayList<>();
+		test.add("1");
+		test.add("4");
+		test.add("1982");//tahunlahir
+		test.add("1");
+		test.add("5");
+		test.add("2012");//tahunkerja
+		test.add("3000");//gaji
+		test.add("150");//allowance
+		test.add("100");//gajicuti
+		test.add("0");//cutihari
+		test.add("0");//cutibulan
+		test.add("0");//cutitahun
+		test.add("21");//harisara
+		test.add("5");//bulansara
+		test.add("2022");//tahunsara
+		test.add("P");//jantina
+		test.add("N");//istimewa
+		
+		ArrayList<String> output = ps.kirapencen(test);
+		String exBenefit = "2";
+		String actBenefit = output.get(2);
+		assertEquals(exBenefit,actBenefit);
+	}
+	
+	@Test
+	void testcase18() { //AND TC22
+		PensionServiceIMP pc = new PensionServiceIMP();
+		ArrayList<String> test = new ArrayList<>();
+		test.add("1");
+		test.add("5");
+		test.add("1982");//tahunlahir
+		test.add("1");
+		test.add("4");
+		test.add("2012");//tahunkerja
+		test.add("3000");//gaji
+		test.add("110");//allowance
+		test.add("120");//gajicuti
+		test.add("0");//cutihari
+		test.add("0");//cutibulan
+		test.add("0");//cutitahun
+		test.add("21");//harisara
+		test.add("5");//bulansara
+		test.add("2022");//tahunsara
+		test.add("P");//jantina
+		test.add("N");//istimewa
+		ArrayList<String> output = pc.kirapencen(test);
+		String exBenefit = "0";
+		String actBenefit = output.get(2);
+		assertEquals(exBenefit,actBenefit);
+		
+		double expPension = 605;
+		double expGratuity = 27225;
+		double expCash = 12440;
+		double actPension = Double.parseDouble(output.get(4));
+		double actGratuity = Double.parseDouble(output.get(5));
+		double actCashAward = Double.parseDouble(output.get(6));
+		assertEquals(expPension,actPension);
+		assertEquals(expGratuity,actGratuity);
+		assertEquals(expCash,actCashAward);
+	}
+
+
+	@Test 
+	void testcase19() {  //AND TC24
+		PensionServiceIMP ps = new PensionServiceIMP();
+		ArrayList<String> test = new ArrayList<>();
+		test.add("1");
+		test.add("5");
+		test.add("1981");//tahunlahir
+		test.add("1");
+		test.add("6");
+		test.add("2012");//tahunkerja
+		test.add("3000");//gaji
+		test.add("150");//allowance
+		test.add("100");//gajicuti
+		test.add("0");//cutihari
+		test.add("0");//cutibulan
+		test.add("0");//cutitahun
+		test.add("21");//harisara
+		test.add("5");//bulansara
+		test.add("2022");//tahunsara
+		test.add("P");//jantina
+		test.add("N");//istimewa
+		
+		ArrayList<String> output = ps.kirapencen(test);
+		String exBenefit = "2";
+		String actBenefit = output.get(2);
+		assertEquals(exBenefit,actBenefit);
+	}
+	
+	@Test //SALAH
+	void testcase20() {
+		PensionServiceIMP ps = new PensionServiceIMP();
+		ArrayList<String> test = new ArrayList<>();
+		test.add("1");
+		test.add("4");
+		test.add("1981");//tahunlahir
+		test.add("1");
+		test.add("5");
+		test.add("2012");//tahunkerja
+		test.add("3000");//gaji
+		test.add("150");//allowance
+		test.add("100");//gajicuti
+		test.add("0");//cutihari
+		test.add("0");//cutibulan
+		test.add("0");//cutitahun
+		test.add("21");//harisara
+		test.add("5");//bulansara
+		test.add("2022");//tahunsara
+		test.add("P");//jantina
+		test.add("N");//istimewa
+		
+		ArrayList<String> output = ps.kirapencen(test);
+		String exBenefit = "2";
+		String actBenefit = output.get(2);
+		assertEquals(exBenefit,actBenefit);
+	}
+	
+	@Test
+	void testcase21() {
+		PensionServiceIMP pc = new PensionServiceIMP();
+		ArrayList<String> test = new ArrayList<>();
+		test.add("1");
+		test.add("5");
+		test.add("1981");//tahunlahir
+		test.add("1");
+		test.add("4");
+		test.add("2012");//tahunkerja
+		test.add("3000");//gaji
+		test.add("110");//allowance
+		test.add("120");//gajicuti
+		test.add("0");//cutihari
+		test.add("0");//cutibulan
+		test.add("0");//cutitahun
+		test.add("21");//harisara
+		test.add("5");//bulansara
+		test.add("2022");//tahunsara
+		test.add("P");//jantina
+		test.add("N");//istimewa
+		ArrayList<String> output = pc.kirapencen(test);
+		String exBenefit = "0";
+		String actBenefit = output.get(2);
+		assertEquals(exBenefit,actBenefit);
+		
+		double expPension = 605;
+		double expGratuity = 27225;
+		double expCash = 12440;
+		double actPension = Double.parseDouble(output.get(4));
+		double actGratuity = Double.parseDouble(output.get(5));
+		double actCash = Double.parseDouble(output.get(6));
+		assertEquals(expPension,actPension);
+		assertEquals(expGratuity,actGratuity);
+		assertEquals(expCash,actCash);
+	}
+	
+	
+	@Test 
+	void testcase25() { 
+		PensionServiceIMP ps = new PensionServiceIMP();
+		ArrayList<String> test = new ArrayList<>();
+		test.add("1");
+		test.add("5");
+		test.add("1999");//tahunlahir
+		test.add("1");
+		test.add("11");
+		test.add("2019");//tahunkerja
+		test.add("3000");//gaji
+		test.add("150");//allowance
+		test.add("100");//gajicuti
+		test.add("0");//cutihari
+		test.add("0");//cutibulan
+		test.add("0");//cutitahun
+		test.add("21");//harisara
+		test.add("5");//bulansara
+		test.add("2022");//tahunsara
+		test.add("P");//jantina
+		test.add("N");//istimewa
+		
+		ArrayList<String> output = ps.kirapencen(test);
+		String exBenefit = "1";
+		String actBenefit = output.get(2);
+		assertEquals(exBenefit,actBenefit);
+	}
+	
+	////////////////////FUNCTIONALITY 1: PENSION AGE
+	
+	@Test 
+	void testcase5() { 
+		PensionServiceIMP ps = new PensionServiceIMP();
+		ArrayList<String> test = new ArrayList<>();
+		test.add("12");
+		test.add("10");
+		test.add("1978");//tahunlahir
+		test.add("2");
+		test.add("1");
+		test.add("1988");//tahunkerja
+		test.add("3000");//gaji
+		test.add("150");//allowance
+		test.add("100");//gajicuti
+		test.add("0");//cutihari
+		test.add("0");//cutibulan
+		test.add("0");//cutitahun
+		test.add("21");//harisara
+		test.add("5");//bulansara
+		test.add("2022");//tahunsara
+		test.add("P");//jantina
+		test.add("Y");//istimewa
+		
+		ArrayList<String> output = ps.kirapencen(test);
+		String exPensionDate = "Oct, 2023";
+		String actPensionDate = output.get(7);
+		assertEquals(exPensionDate,actPensionDate);
+	}
+	
+	@Test 
+	void testcase6() { 
+		PensionServiceIMP ps = new PensionServiceIMP();
+		ArrayList<String> test = new ArrayList<>();
+		test.add("12");
+		test.add("10");
+		test.add("1978");//tahunlahir
+		test.add("2");
+		test.add("1");
+		test.add("1988");//tahunkerja
+		test.add("3000");//gaji
+		test.add("150");//allowance
+		test.add("100");//gajicuti
+		test.add("0");//cutihari
+		test.add("0");//cutibulan
+		test.add("0");//cutitahun
+		test.add("21");//harisara
+		test.add("5");//bulansara
+		test.add("2022");//tahunsara
+		test.add("P");//jantina
+		test.add("N");//istimewa
+		
+		ArrayList<String> output = ps.kirapencen(test);
+		String exPensionDate = "Oct, 2023";
+		String actPensionDate = output.get(7);
+		assertEquals(exPensionDate,actPensionDate);
+	}
+	
+	@Test 
+	void testcase7() { 
+		PensionServiceIMP ps = new PensionServiceIMP();
+		ArrayList<String> test = new ArrayList<>();
+		test.add("12");
+		test.add("10");
+		test.add("1978");//tahunlahir
+		test.add("2");
+		test.add("1");
+		test.add("1988");//tahunkerja
+		test.add("3000");//gaji
+		test.add("150");//allowance
+		test.add("100");//gajicuti
+		test.add("0");//cutihari
+		test.add("0");//cutibulan
+		test.add("0");//cutitahun
+		test.add("21");//harisara
+		test.add("5");//bulansara
+		test.add("2022");//tahunsara
+		test.add("L");//jantina
+		test.add("Y");//istimewa
+		
+		ArrayList<String> output = ps.kirapencen(test);
+		String exPensionDate = "Oct, 2023";
+		String actPensionDate = output.get(7);
+		assertEquals(exPensionDate,actPensionDate);
+	}
+	
+	@Test 
+	void testcase8() { //age 55?
+		PensionServiceIMP ps = new PensionServiceIMP();
+		ArrayList<String> test = new ArrayList<>();
+		test.add("12");
+		test.add("10");
+		test.add("1978");//tahunlahir
+		test.add("2");
+		test.add("1");
+		test.add("1988");//tahunkerja
+		test.add("3000");//gaji
+		test.add("150");//allowance
+		test.add("100");//gajicuti
+		test.add("0");//cutihari
+		test.add("0");//cutibulan
+		test.add("0");//cutitahun
+		test.add("21");//harisara
+		test.add("5");//bulansara
+		test.add("2022");//tahunsara
+		test.add("L");//jantina
+		test.add("N");//istimewa
+		
+		ArrayList<String> output = ps.kirapencen(test);
+		String exPensionDate = "Oct, 2028";
+		String actPensionDate = output.get(7);
+		assertEquals(exPensionDate,actPensionDate);
+	}
+	
+	@Test 
+	void testcase9() { 
+		PensionServiceIMP ps = new PensionServiceIMP();
+		ArrayList<String> test = new ArrayList<>();
+		test.add("12");
+		test.add("10");
+		test.add("1978");//tahunlahir
+		test.add("4");
+		test.add("10");
+		test.add("2001");//tahunkerja
+		test.add("3000");//gaji
+		test.add("150");//allowance
+		test.add("100");//gajicuti
+		test.add("0");//cutihari
+		test.add("0");//cutibulan
+		test.add("0");//cutitahun
+		test.add("21");//harisara
+		test.add("5");//bulansara
+		test.add("2022");//tahunsara
+		test.add("L");//jantina
+		test.add("N");//istimewa
+		
+		ArrayList<String> output = ps.kirapencen(test);
+		String exPensionDate = "Oct, 2032";
+		String actPensionDate = output.get(7);
+		assertEquals(exPensionDate,actPensionDate);
+	}
+	
+	@Test 
+	void testcase10() { 
+		PensionServiceIMP ps = new PensionServiceIMP();
+		ArrayList<String> test = new ArrayList<>();
+		test.add("12");
+		test.add("10");
+		test.add("1978");//tahunlahir
+		test.add("4");
+		test.add("10");
+		test.add("2001");//tahunkerja
+		test.add("3000");//gaji
+		test.add("150");//allowance
+		test.add("100");//gajicuti
+		test.add("0");//cutihari
+		test.add("0");//cutibulan
+		test.add("0");//cutitahun
+		test.add("21");//harisara
+		test.add("5");//bulansara
+		test.add("2022");//tahunsara
+		test.add("P");//jantina
+		test.add("N");//istimewa
+		
+		ArrayList<String> output = ps.kirapencen(test);
+		String exPensionDate = "Oct, 2032";
+		String actPensionDate = output.get(7);
+		assertEquals(exPensionDate,actPensionDate);
+	}
+	
+	@Test 
+	void testcase11() { 
+		PensionServiceIMP ps = new PensionServiceIMP();
+		ArrayList<String> test = new ArrayList<>();
+		test.add("12");
+		test.add("10");
+		test.add("1978");//tahunlahir
+		test.add("4");
+		test.add("10");
+		test.add("2001");//tahunkerja
+		test.add("3000");//gaji
+		test.add("150");//allowance
+		test.add("100");//gajicuti
+		test.add("0");//cutihari
+		test.add("0");//cutibulan
+		test.add("0");//cutitahun
+		test.add("21");//harisara
+		test.add("5");//bulansara
+		test.add("2022");//tahunsara
+		test.add("L");//jantina
+		test.add("Y");//istimewa
+		
+		ArrayList<String> output = ps.kirapencen(test);
+		String exPensionDate = "Oct, 2032";
+		String actPensionDate = output.get(7);
+		assertEquals(exPensionDate,actPensionDate);
+	}
+	
+	@Test 
+	void testcase12() { 
+		PensionServiceIMP ps = new PensionServiceIMP();
+		ArrayList<String> test = new ArrayList<>();
+		test.add("12");
+		test.add("10");
+		test.add("1978");//tahunlahir
+		test.add("4");
+		test.add("10");
+		test.add("2001");//tahunkerja
+		test.add("3000");//gaji
+		test.add("150");//allowance
+		test.add("100");//gajicuti
+		test.add("0");//cutihari
+		test.add("0");//cutibulan
+		test.add("0");//cutitahun
+		test.add("21");//harisara
+		test.add("5");//bulansara
+		test.add("2022");//tahunsara
+		test.add("L");//jantina
+		test.add("N");//istimewa
+		
+		ArrayList<String> output = ps.kirapencen(test);
+		String exPensionDate = "Oct, 2032";
+		String actPensionDate = output.get(7);
+		assertEquals(exPensionDate,actPensionDate);
+	}
+	
+	@Test 
+	void testcase26() { 
+		PensionServiceIMP ps = new PensionServiceIMP();
+		ArrayList<String> test = new ArrayList<>();
+		test.add("12");
+		test.add("10");
+		test.add("1978");//tahunlahir
+		test.add("2");
+		test.add("1");
+		test.add("1988");//tahunkerja
+		test.add("3000");//gaji
+		test.add("150");//allowance
+		test.add("100");//gajicuti
+		test.add("0");//cutihari
+		test.add("0");//cutibulan
+		test.add("0");//cutitahun
+		test.add("21");//harisara
+		test.add("5");//bulansara
+		test.add("2022");//tahunsara
+		test.add("P");//jantina
+		test.add("Y");//istimewa
+		
+		ArrayList<String> output = ps.kirapencen(test);
+		String exPensionDate = "Oct, 2023";
+		String actPensionDate = output.get(7);
+		assertEquals(exPensionDate,actPensionDate);
+	}
+	
+	@Test 
+	void testcase27() { 
+		PensionServiceIMP ps = new PensionServiceIMP();
+		ArrayList<String> test = new ArrayList<>();
+		test.add("12");
+		test.add("10");
+		test.add("1978");//tahunlahir
+		test.add("4");
+		test.add("10");
+		test.add("2001");//tahunkerja
+		test.add("3000");//gaji
+		test.add("150");//allowance
+		test.add("100");//gajicuti
+		test.add("0");//cutihari
+		test.add("0");//cutibulan
+		test.add("0");//cutitahun
+		test.add("21");//harisara
+		test.add("5");//bulansara
+		test.add("2022");//tahunsara
+		test.add("P");//jantina
+		test.add("N");//istimewa
+		
+		ArrayList<String> output = ps.kirapencen(test);
+		String exPensionDate = "Oct, 2032";
+		String actPensionDate = output.get(7);
+		assertEquals(exPensionDate,actPensionDate);
+	}
+	
+	//////////////////////////////////////CONTROL STRUCTURE
+	
+	@Test 
+	void testcase28() { 
+		PensionServiceIMP ps = new PensionServiceIMP();
+		ArrayList<String> test = new ArrayList<>();
+		test.add("12");
+		test.add("2");
+		test.add("1978");//tahunlahir
+		test.add("10");
+		test.add("10");
+		test.add("2001");//tahunkerja
+		test.add("3000");//gaji
+		test.add("150");//allowance
+		test.add("100");//gajicuti
+		test.add("0");//cutihari
+		test.add("0");//cutibulan
+		test.add("0");//cutitahun
+		test.add("9");//harisara
+		test.add("10");//bulansara
+		test.add("2022");//tahunsara
+		test.add("P");//jantina
+		test.add("N");//istimewa
+		
+		ArrayList<String> output = ps.kirapencen(test);
+		String exPenMonth = "7";
+		String exPenYear = "44";
+		String actPenMonth = output.get(0);
+		String actPenYear = output.get(1);
+		assertEquals(exPenMonth,actPenMonth);
+		assertEquals(exPenYear,actPenYear);
+	}
+	
+
+	@Test 
+	void testcase29() { 
+		PensionServiceIMP ps = new PensionServiceIMP();
+		ArrayList<String> test = new ArrayList<>();
+		test.add("9");
+		test.add("12");
+		test.add("1978");//tahunlahir
+		test.add("4");
+		test.add("10");
+		test.add("2001");//tahunkerja
+		test.add("3000");//gaji
+		test.add("150");//allowance
+		test.add("100");//gajicuti
+		test.add("0");//cutihari
+		test.add("0");//cutibulan
+		test.add("0");//cutitahun
+		test.add("12");//harisara
+		test.add("10");//bulansara
+		test.add("2022");//tahunsara
+		test.add("P");//jantina
+		test.add("N");//istimewa
+		
+		ArrayList<String> output = ps.kirapencen(test);
+		String exPenMonth = "10";
+		String exPenYear = "43";
+		String actPenMonth = output.get(0);
+		String actPenYear = output.get(1);
+		assertEquals(exPenMonth,actPenMonth);
+		assertEquals(exPenYear,actPenYear);
+	}
+	
+
+	
+	@Test 
+	void testcase30() { 
+		PensionServiceIMP ps = new PensionServiceIMP();
+		ArrayList<String> test = new ArrayList<>();
+		test.add("12");
+		test.add("10");
+		test.add("1978");//tahunlahir
+		test.add("2");
+		test.add("1");
+		test.add("1988");//tahunkerja
+		test.add("3000");//gaji
+		test.add("150");//allowance
+		test.add("100");//gajicuti
+		test.add("0");//cutihari
+		test.add("0");//cutibulan
+		test.add("0");//cutitahun
+		test.add("21");//harisara
+		test.add("5");//bulansara
+		test.add("2022");//tahunsara
+		test.add("P");//jantina
+		test.add("N");//istimewa
+		
+		ArrayList<String> output = ps.kirapencen(test);
+		String exPensionDate = "Oct, 2023";
+		String actPensionDate = output.get(7);
+		assertEquals(exPensionDate,actPensionDate);
+	}
+	
+	@Test 
+	void testcase31() { 
+		PensionServiceIMP ps = new PensionServiceIMP();
+		ArrayList<String> test = new ArrayList<>();
+		test.add("12");
+		test.add("10");
+		test.add("1978");//tahunlahir
+		test.add("2");
+		test.add("1");
+		test.add("1988");//tahunkerja
+		test.add("3000");//gaji
+		test.add("150");//allowance
+		test.add("100");//gajicuti
+		test.add("0");//cutihari
+		test.add("0");//cutibulan
+		test.add("0");//cutitahun
+		test.add("21");//harisara
+		test.add("5");//bulansara
+		test.add("2022");//tahunsara
+		test.add("L");//jantina
+		test.add("N");//istimewa
+		
+		ArrayList<String> output = ps.kirapencen(test);
+		String exPensionDate = "Oct, 2028";
+		String actPensionDate = output.get(7);
+		assertEquals(exPensionDate,actPensionDate);
+	}
+	
+	@Test 
+	void testcase32() { 
+		PensionServiceIMP ps = new PensionServiceIMP();
+		ArrayList<String> test = new ArrayList<>();
+		test.add("12");
+		test.add("10");
+		test.add("1978");//tahunlahir
+		test.add("4");
+		test.add("10");
+		test.add("2001");//tahunkerja
+		test.add("3000");//gaji
+		test.add("150");//allowance
+		test.add("100");//gajicuti
+		test.add("0");//cutihari
+		test.add("0");//cutibulan
+		test.add("0");//cutitahun
+		test.add("21");//harisara
+		test.add("5");//bulansara
+		test.add("2022");//tahunsara
+		test.add("P");//jantina
+		test.add("N");//istimewa
+		
+		ArrayList<String> output = ps.kirapencen(test);
+		String exPensionDate = "Oct, 2032";
+		String actPensionDate = output.get(7);
+		assertEquals(exPensionDate,actPensionDate);
+	}
+	
+	@Test 
+	void testcase33() { 
+		PensionServiceIMP ps = new PensionServiceIMP();
+		ArrayList<String> test = new ArrayList<>();
+		test.add("12");
+		test.add("10");
+		test.add("1978");//tahunlahir
+		test.add("4");
+		test.add("10");
+		test.add("2001");//tahunkerja
+		test.add("3000");//gaji
+		test.add("150");//allowance
+		test.add("100");//gajicuti
+		test.add("0");//cutihari
+		test.add("0");//cutibulan
+		test.add("0");//cutitahun
+		test.add("21");//harisara
+		test.add("5");//bulansara
+		test.add("2022");//tahunsara
+		test.add("L");//jantina
+		test.add("Y");//istimewa
+		
+		ArrayList<String> output = ps.kirapencen(test);
+		String exPensionDate = "Oct, 2032";
+		String actPensionDate = output.get(7);
+		assertEquals(exPensionDate,actPensionDate);
+	}
+	
+	@Test 
+	void testcase34() { 
+		PensionServiceIMP ps = new PensionServiceIMP();
+		ArrayList<String> test = new ArrayList<>();
+		test.add("12");
+		test.add("10");
+		test.add("1978");//tahunlahir
+		test.add("4");
+		test.add("10");
+		test.add("2001");//tahunkerja
+		test.add("3000");//gaji
+		test.add("150");//allowance
+		test.add("100");//gajicuti
+		test.add("0");//cutihari
+		test.add("0");//cutibulan
+		test.add("0");//cutitahun
+		test.add("21");//harisara
+		test.add("5");//bulansara
+		test.add("2022");//tahunsara
+		test.add("P");//jantina
+		test.add("Y");//istimewa
+		
+		ArrayList<String> output = ps.kirapencen(test);
+		String exPensionDate = "Oct, 2032";
+		String actPensionDate = output.get(7);
+		assertEquals(exPensionDate,actPensionDate);
+	}
+	
+	@Test 
+	void testcase35() { 
+		PensionServiceIMP ps = new PensionServiceIMP();
+		ArrayList<String> test = new ArrayList<>();
+		test.add("12");
+		test.add("10");
+		test.add("1978");//tahunlahir
+		test.add("4");
+		test.add("10");
+		test.add("2001");//tahunkerja
+		test.add("3000");//gaji
+		test.add("150");//allowance
+		test.add("100");//gajicuti
+		test.add("0");//cutihari
+		test.add("0");//cutibulan
+		test.add("0");//cutitahun
+		test.add("21");//harisara
+		test.add("5");//bulansara
+		test.add("2022");//tahunsara
+		test.add("L");//jantina
+		test.add("N");//istimewa
+		
+		ArrayList<String> output = ps.kirapencen(test);
+		String exPensionDate = "Oct, 2032";
+		String actPensionDate = output.get(7);
+		assertEquals(exPensionDate,actPensionDate);
+	}
+	
+	@Test 
+	void testcase36() { 
+		PensionServiceIMP ps = new PensionServiceIMP();
+		ArrayList<String> test = new ArrayList<>();
+		test.add("12");
+		test.add("10");
+		test.add("1978");//tahunlahir
+		test.add("2");
+		test.add("1");
+		test.add("1988");//tahunkerja
+		test.add("3000");//gaji
+		test.add("150");//allowance
+		test.add("100");//gajicuti
+		test.add("0");//cutihari
+		test.add("0");//cutibulan
+		test.add("0");//cutitahun
+		test.add("21");//harisara
+		test.add("5");//bulansara
+		test.add("2022");//tahunsara
+		test.add("P");//jantina
+		test.add("Y");//istimewa
+		
+		ArrayList<String> output = ps.kirapencen(test);
+		String exPensionDate = "Oct, 2023";
+		String actPensionDate = output.get(7);
+		assertEquals(exPensionDate,actPensionDate);
+	}
+	
+	@Test 
+	void testcase37() { 
+		PensionServiceIMP ps = new PensionServiceIMP();
+		ArrayList<String> test = new ArrayList<>();
+		test.add("12");
+		test.add("10");
+		test.add("1978");//tahunlahir
+		test.add("2");
+		test.add("1");
+		test.add("1988");//tahunkerja
+		test.add("3000");//gaji
+		test.add("150");//allowance
+		test.add("100");//gajicuti
+		test.add("0");//cutihari
+		test.add("0");//cutibulan
+		test.add("0");//cutitahun
+		test.add("21");//harisara
+		test.add("5");//bulansara
+		test.add("2022");//tahunsara
+		test.add("L");//jantina
+		test.add("Y");//istimewa
+		
+		ArrayList<String> output = ps.kirapencen(test);
+		String exPensionDate = "Oct, 2023";
+		String actPensionDate = output.get(7);
+		assertEquals(exPensionDate,actPensionDate);
+	}
+	
+	@Test 
+	void testcase38() { 
+
+		PensionServiceIMP ps = new PensionServiceIMP();
+		ArrayList<String> test = new ArrayList<>();
+		test.add("12");
+		test.add("2");
+		test.add("1978");//tahunlahir
+		test.add("12");
+		test.add("5");
+		test.add("2001");//tahunkerja
+		test.add("3000");//gaji
+		test.add("100");//allowance
+		test.add("100");//gajicuti
+		test.add("0");//cutihari
+		test.add("0");//cutibulan
+		test.add("0");//cutitahun
+		test.add("9");//harisara
+		test.add("10");//bulansara
+		test.add("2022");//tahunsara
+		test.add("L");//jantina
+		test.add("Y");//istimewa
+		
+		ArrayList<String> output = ps.kirapencen(test);
+		String actPension = output.get(4);
+		double actServiceMonth = Double.parseDouble(actPension) * 600 / 3000;
+		double exServiceMonth = 256;
+		System.out.println(actServiceMonth + "40");
+		assertEquals(exServiceMonth,actServiceMonth);
+	}
+	
+	@Test 
+	void testcase39() { 
+		PensionServiceIMP ps = new PensionServiceIMP();
+		ArrayList<String> test = new ArrayList<>();
+		test.add("9");
+		test.add("12");
+		test.add("1978");//tahunlahir
+		test.add("12");
+		test.add("5");
+		test.add("2001");//tahunkerja
+		test.add("3000");//gaji
+		test.add("100");//allowance
+		test.add("100");//gajicuti
+		test.add("0");//cutihari
+		test.add("0");//cutibulan
+		test.add("0");//cutitahun
+		test.add("12");//harisara
+		test.add("10");//bulansara
+		test.add("2022");//tahunsara
+		test.add("L");//jantina
+		test.add("Y");//istimewa
+		
+		ArrayList<String> output = ps.kirapencen(test);
+		String actPension = output.get(4);
+		double actServiceMonth = Double.parseDouble(actPension) * 600 / 3000;
+		double exServiceMonth = 257;
+		System.out.println(actServiceMonth+ "41");
+		assertEquals(exServiceMonth,actServiceMonth);
+	}
+
+	
+
+	@Test 
+	void testcase40() { 
+		PensionServiceIMP ps = new PensionServiceIMP();
+		ArrayList<String> test = new ArrayList<>();
+		test.add("2");
+		test.add("1");
+		test.add("1992");//tahunlahir
+		test.add("5");
+		test.add("10");
+		test.add("2012");//tahunkerja
+		test.add("3000");//gaji
+		test.add("150");//allowance
+		test.add("100");//gajicuti
+		test.add("0");//cutihari
+		test.add("0");//cutibulan
+		test.add("0");//cutitahun
+		test.add("21");//harisara
+		test.add("5");//bulansara
+		test.add("2022");//tahunsara
+		test.add("P");//jantina
+		test.add("N");//istimewa
+		
+		ArrayList<String> output = ps.kirapencen(test);
+		String exBenefit = "1";
+		String actBenefit = output.get(2);
+		assertEquals(exBenefit,actBenefit);
+	}
+	
+	@Test 
+	void testcase41() { 
+		PensionServiceIMP ps = new PensionServiceIMP();
+		ArrayList<String> test = new ArrayList<>();
+		test.add("2");
+		test.add("1");
+		test.add("1977");//tahunlahir
+		test.add("5");
+		test.add("10");
+		test.add("2012");//tahunkerja
+		test.add("3000");//gaji
+		test.add("150");//allowance
+		test.add("100");//gajicuti
+		test.add("0");//cutihari
+		test.add("0");//cutibulan
+		test.add("0");//cutitahun
+		test.add("21");//harisara
+		test.add("5");//bulansara
+		test.add("2022");//tahunsara
+		test.add("P");//jantina
+		test.add("N");//istimewa
+		
+		ArrayList<String> output = ps.kirapencen(test);
+		String exBenefit = "2";
+		String actBenefit = output.get(2);
+		assertEquals(exBenefit,actBenefit);
+	}
+	
+	@Test 
+	void testcase42() { 
+		PensionServiceIMP ps = new PensionServiceIMP();
+		ArrayList<String> test = new ArrayList<>();
+		test.add("4");
+		test.add("4");
+		test.add("1972");//tahunlahir
+		test.add("7");
+		test.add("12");
+		test.add("2011");//tahunkerja
+		test.add("3000");//gaji
+		test.add("150");//allowance
+		test.add("100");//gajicuti
+		test.add("0");//cutihari
+		test.add("0");//cutibulan
+		test.add("0");//cutitahun
+		test.add("21");//harisara
+		test.add("5");//bulansara
+		test.add("2022");//tahunsara
+		test.add("P");//jantina
+		test.add("N");//istimewa
+		
+		ArrayList<String> output = ps.kirapencen(test);
+		String exBenefit = "0";
+		String actBenefit = output.get(2);
+		assertEquals(exBenefit,actBenefit);
+	}
+	
+	@Test 
+	void testcase43() { 
+		PensionServiceIMP ps = new PensionServiceIMP();
+		ArrayList<String> test = new ArrayList<>();
+		test.add("4");
+		test.add("4");
+		test.add("1992");//tahunlahir
+		test.add("7");
+		test.add("12");
+		test.add("2011");//tahunkerja
+		test.add("3000");//gaji
+		test.add("150");//allowance
+		test.add("100");//gajicuti
+		test.add("0");//cutihari
+		test.add("0");//cutibulan
+		test.add("0");//cutitahun
+		test.add("21");//harisara
+		test.add("5");//bulansara
+		test.add("2022");//tahunsara
+		test.add("P");//jantina
+		test.add("N");//istimewa
+		
+		ArrayList<String> output = ps.kirapencen(test);
+		String exBenefit = "1";
+		String actBenefit = output.get(2);
+		assertEquals(exBenefit,actBenefit);
+	}
+	
+	@Test 
+	void testcase44() { 
+		PensionServiceIMP ps = new PensionServiceIMP();
+		ArrayList<String> test = new ArrayList<>();
+		test.add("6");
+		test.add("3");
+		test.add("1992");//tahunlahir
+		test.add("14");
+		test.add("3");
+		test.add("2013");//tahunkerja
+		test.add("3000");//gaji
+		test.add("150");//allowance
+		test.add("100");//gajicuti
+		test.add("0");//cutihari
+		test.add("0");//cutibulan
+		test.add("0");//cutitahun
+		test.add("21");//harisara
+		test.add("5");//bulansara
+		test.add("2022");//tahunsara
+		test.add("P");//jantina
+		test.add("N");//istimewa
+		
+		ArrayList<String> output = ps.kirapencen(test);
+		String exBenefit = "1";
+		String actBenefit = output.get(2);
+		assertEquals(exBenefit,actBenefit);
+	}
+	
+	
+	@Test 
+	void testcase45() { 
+		PensionServiceIMP ps = new PensionServiceIMP();
+		ArrayList<String> test = new ArrayList<>();
+		test.add("6");
+		test.add("3");
+		test.add("1977");//tahunlahir
+		test.add("7");
+		test.add("12");
+		test.add("2011");//tahunkerja
+		test.add("3000");//gaji
+		test.add("150");//allowance
+		test.add("100");//gajicuti
+		test.add("0");//cutihari
+		test.add("0");//cutibulan
+		test.add("0");//cutitahun
+		test.add("21");//harisara
+		test.add("5");//bulansara
+		test.add("2022");//tahunsara
+		test.add("P");//jantina
+		test.add("N");//istimewa
+		
+		ArrayList<String> output = ps.kirapencen(test);
+		String exBenefit = "0";
+		String actBenefit = output.get(2);
+		assertEquals(exBenefit,actBenefit);
+	}
+	
+	@Test 
+	void testcase46() { 
+		PensionServiceIMP ps = new PensionServiceIMP();
+		ArrayList<String> test = new ArrayList<>();
+		test.add("12");
+		test.add("10");
+		test.add("1978");//tahunlahir
+		test.add("2");
+		test.add("1");
+		test.add("1989");//tahunkerja
+		test.add("2000");//gaji
+		test.add("150");//allowance
+		test.add("100");//gajicuti
+		test.add("0");//cutihari
+		test.add("0");//cutibulan
+		test.add("0");//cutitahun
+		test.add("21");//harisara
+		test.add("5");//bulansara
+		test.add("2022");//tahunsara
+		test.add("P");//jantina
+		test.add("N");//istimewa
+		
+		ArrayList<String> output = ps.kirapencen(test);
+		String exMinPension = "1200.00";
+		String actMinPension = output.get(4);
+		assertEquals(exMinPension,actMinPension);
+	}
+	
+	@Test 
+	void testcase47() { 
+		PensionServiceIMP ps = new PensionServiceIMP();
+		ArrayList<String> test = new ArrayList<>();
+		test.add("12");
+		test.add("10");
+		test.add("1978");//tahunlahir
+		test.add("14");
+		test.add("5");
+		test.add("2012");//tahunkerja
+		test.add("2000");//gaji
+		test.add("150");//allowance
+		test.add("100");//gajicuti
+		test.add("0");//cutihari
+		test.add("0");//cutibulan
+		test.add("0");//cutitahun
+		test.add("21");//harisara
+		test.add("5");//bulansara
+		test.add("2022");//tahunsara
+		test.add("P");//jantina
+		test.add("N");//istimewa
+		
+		ArrayList<String> output = ps.kirapencen(test);
+		String exMinPension = "400.00";
+		String actMinPension = output.get(4);
+		assertEquals(exMinPension,actMinPension);
+	}
+	
+	@Test 
+	void testcase48() { 
+		PensionServiceIMP ps = new PensionServiceIMP();
+		ArrayList<String> test = new ArrayList<>();
+		test.add("14");
+		test.add("5");
+		test.add("1978");//tahunlahir
+		test.add("14");
+		test.add("1");
+		test.add("2014");//tahunkerja
+		test.add("2000");//gaji
+		test.add("100");//allowance
+		test.add("149");//gajicuti
+		test.add("0");//cutihari
+		test.add("0");//cutibulan
+		test.add("0");//cutitahun
+		test.add("21");//harisara
+		test.add("5");//bulansara
+		test.add("2022");//tahunsara
+		test.add("P");//jantina
+		test.add("N");//istimewa
+		
+		ArrayList<String> output = ps.kirapencen(test);
+		double exLeaveDay = 149;
+		String actLeaveAward = output.get(6);
+		double actLeaveDay = Double.parseDouble(actLeaveAward) * 30 / (Double.parseDouble(test.get(6)) + Double.parseDouble(test.get(7)));
+		assertEquals(exLeaveDay,actLeaveDay);
+	}
+	
+	@Test 
+	void testcase49() { 
+		PensionServiceIMP ps = new PensionServiceIMP();
+		ArrayList<String> test = new ArrayList<>();
+		test.add("14");
+		test.add("5");
+		test.add("1978");//tahunlahir
+		test.add("14");
+		test.add("1");
+		test.add("2014");//tahunkerja
+		test.add("2000");//gaji
+		test.add("100");//allowance
+		test.add("155");//gajicuti
+		test.add("0");//cutihari
+		test.add("0");//cutibulan
+		test.add("0");//cutitahun
+		test.add("21");//harisara
+		test.add("5");//bulansara
+		test.add("2022");//tahunsara
+		test.add("P");//jantina
+		test.add("N");//istimewa
+		
+		ArrayList<String> output = ps.kirapencen(test);
+		double exLeaveDay = 150;
+		String actLeaveAward = output.get(6);
+		double actLeaveDay = Double.parseDouble(actLeaveAward) * 30 / (Double.parseDouble(test.get(6)) + Double.parseDouble(test.get(7)));
+		assertEquals(exLeaveDay,actLeaveDay);
+	}
+	
+	@Test 
+	void testcase50() { 
+		PensionServiceIMP ps = new PensionServiceIMP();
+		ArrayList<String> test = new ArrayList<>();
+		test.add("0");
+		test.add("1");
+		test.add("1978");//tahunlahir
+		test.add("2");
+		test.add("1");
+		test.add("1989");//tahunkerja
+		test.add("2000");//gaji
+		test.add("150");//allowance
+		test.add("100");//gajicuti
+		test.add("0");//cutihari
+		test.add("0");//cutibulan
+		test.add("0");//cutitahun
+		test.add("21");//harisara
+		test.add("5");//bulansara
+		test.add("2022");//tahunsara
+		test.add("P");//jantina
+		test.add("N");//istimewa
+
+		ArrayList<String> output = ps.kirapencen(test);
+		String exPensionDate = "Dec, 2022";
+		String actPensionDate= output.get(7);
+		assertEquals(exPensionDate,actPensionDate);
+	}
+	
+	@Test 
+	void testcase51() { 
+		PensionServiceIMP ps = new PensionServiceIMP();
+		ArrayList<String> test = new ArrayList<>();
+		test.add("14");
+		test.add("5");
+		test.add("1978");//tahunlahir
+		test.add("2");
+		test.add("1");
+		test.add("1989");//tahunkerja
+		test.add("2000");//gaji
+		test.add("150");//allowance
+		test.add("100");//gajicuti
+		test.add("0");//cutihari
+		test.add("0");//cutibulan
+		test.add("0");//cutitahun
+		test.add("21");//harisara
+		test.add("5");//bulansara
+		test.add("2022");//tahunsara
+		test.add("P");//jantina
+		test.add("N");//istimewa
+
+		ArrayList<String> output = ps.kirapencen(test);
+		String exPensionDate = "May, 2023";
+		String actPensionDate= output.get(7);
+		assertEquals(exPensionDate,actPensionDate);
+	}
+	
+}
